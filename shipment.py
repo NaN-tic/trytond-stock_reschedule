@@ -10,7 +10,7 @@ class ShipmentInternal(metaclass=PoolMeta):
     def _get_reschedule_domain(cls, date):
         domain = super()._get_reschedule_domain(date)
 
-        new_state = ('state', 'in', ['waiting', 'draft'])
+        new_state = ('state', 'in', ['assigned', 'waiting', 'draft'])
         for index, condition in enumerate(domain):
             if condition[0] == 'state':
                 domain[index] = new_state
@@ -44,7 +44,7 @@ class ShipmentInReturn(metaclass=PoolMeta):
     def _get_reschedule_domain(cls, date):
         domain = super()._get_reschedule_domain(date)
 
-        new_state = ('state', 'in', ['waiting', 'draft'])
+        new_state = ('state', 'in', ['assigned', 'waiting', 'draft'])
         for index, condition in enumerate(domain):
             if condition[0] == 'state':
                 domain[index] = new_state
@@ -58,7 +58,7 @@ class ShipmentOut(metaclass=PoolMeta):
     def _get_reschedule_domain(cls, date):
         domain = super()._get_reschedule_domain(date)
 
-        new_state = ('state', 'in', ['waiting', 'draft'])
+        new_state = ('state', 'in', ['assigned', 'waiting', 'draft'])
         for index, condition in enumerate(domain):
             if condition[0] == 'state':
                 domain[index] = new_state
