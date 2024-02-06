@@ -44,7 +44,7 @@ class StockRescheduleTestCase(ModuleTestCase):
         state, = [condition for index, condition in enumerate(domain) if condition[0] == 'state']
         self.assertTrue(state[2], ['waiting', 'draft'])
 
-        domain = Production._get_reschedule_domain(date=today)
+        domain = Production._get_reschedule_planned_start_dates_domain(date=today)
         state, = [condition for index, condition in enumerate(domain) if condition[0] == 'state']
         self.assertTrue(state[2], ['waiting', 'draft'])
 

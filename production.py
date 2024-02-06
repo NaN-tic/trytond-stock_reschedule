@@ -7,8 +7,8 @@ class Production(metaclass=PoolMeta):
     __name__ = 'production'
 
     @classmethod
-    def _get_reschedule_domain(cls, date):
-        domain = super()._get_reschedule_domain(date)
+    def _get_reschedule_planned_start_dates_domain(cls, date):
+        domain = super()._get_reschedule_planned_start_dates_domain(date)
 
         new_state = ('state', 'in', ['assigned', 'waiting', 'draft'])
         for index, condition in enumerate(domain):
