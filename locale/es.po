@@ -1,0 +1,22 @@
+#
+# Albert Cervera i Areny <albert@nan-tic.com>, 2024.
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Last-Translator: Albert Cervera i Areny <albert@nan-tic.com>\n"
+"PO-Revision-Date: 2024-05-29 16:28+0200\n"
+"Project-Id-Version: \n"
+"Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
+"Language: ca_ES\n"
+"Content-Transfer-Encoding: 8bit\n"
+"MIME-Version: 1.0\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Lokalize 22.12.3\n"
+
+msgctxt "selection:ir.cron,method:"
+msgid "Reschedule In Shipments"
+msgstr "Reprogramar los albaranes de proveedor"
+
+msgctxt "selection:ir.cron,method:"
+msgid "Reschedule Out Return Shipments"
+msgstr "Reprogramar los albaranes de devolución de proveedor"
