@@ -28,7 +28,7 @@ class ShipmentIn(metaclass=PoolMeta):
             ]
 
     @classmethod
-    def _get_reschedule_move_incoming_domain(cls, date):
+    def _get_reschedule_incoming_move_domain(cls, date):
         return [
             ('state', '=', 'draft'),
             ('planned_date', '<', date),
@@ -47,7 +47,7 @@ class ShipmentIn(metaclass=PoolMeta):
         shipments = cls.search(cls._get_reschedule_domain(date))
         cls.write(shipments, {'planned_date': date})
 
-        moves = Move.search(cls._get_reschedule_move_incoming_domain(date))
+        moves = Move.search(cls._get_reschedule_incoming_move_domain(date))
         Move.write(moves, {'planned_date': date})
 
 
