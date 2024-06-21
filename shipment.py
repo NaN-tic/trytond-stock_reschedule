@@ -28,13 +28,27 @@ class ShipmentIn(metaclass=PoolMeta):
             ]
 
     @classmethod
+    def _get_reschedule_incoming_move_domain(cls, date):
+        return [
+            ('state', '=', 'draft'),
+            ('planned_date', '<', date),
+            ('from_location.type', '=', 'supplier'),
+            ('shipment', '=', None),
+            ]
+
+    @classmethod
     def reschedule(cls, date=None):
         pool = Pool()
         Date = pool.get('ir.date')
+        Move = pool.get('stock.move')
+
         if date is None:
             date = Date.today()
         shipments = cls.search(cls._get_reschedule_domain(date))
         cls.write(shipments, {'planned_date': date})
+
+        moves = Move.search(cls._get_reschedule_incoming_move_domain(date))
+        Move.write(moves, {'planned_date': date})
 
 
 class ShipmentInReturn(metaclass=PoolMeta):
