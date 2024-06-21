@@ -70,6 +70,22 @@ Create Shipment In::
     >>> shipment_in.state
     'draft'
 
+Create incoming move::
+
+    >>> StockMove = Model.get('stock.move')
+    >>> move_in = StockMove()
+    >>> move_in.planned_date = yesterday
+    >>> move_in.product = product
+    >>> move_in.unit = unit
+    >>> move_in.quantity = 2
+    >>> move_in.from_location = supplier_loc
+    >>> move_in.to_location = storage_loc
+    >>> move_in.unit_price = Decimal('1')
+    >>> move_in.currency = company.currency
+    >>> move_in.save()
+    >>> move_in.planned_date == yesterday
+    True
+
 Reschedule shipment::
 
     >>> Cron = Model.get('ir.cron')
@@ -79,4 +95,7 @@ Reschedule shipment::
     >>> cron.click('run_once')
     >>> shipment_in.reload()
     >>> shipment_in.planned_date == today
+    True
+    >>> move_in.reload()
+    >>> move_in.planned_date == today
     True
