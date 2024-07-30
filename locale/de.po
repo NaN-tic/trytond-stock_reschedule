@@ -1,0 +1,11 @@
+#
+msgid ""
+msgstr "Content-Type: text/plain; charset=utf-8\n"
+
+msgctxt "selection:ir.cron,method:"
+msgid "Reschedule In Shipments"
+msgstr "Lieferungen von Lieferanten neu planen"
+
+msgctxt "selection:ir.cron,method:"
+msgid "Reschedule Out Return Shipments"
+msgstr "Warenrücknahmen (von Kunden) neu planen"
