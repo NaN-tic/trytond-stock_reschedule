@@ -15,8 +15,8 @@ msgstr ""
 
 msgctxt "selection:ir.cron,method:"
 msgid "Reschedule In Shipments"
-msgstr "Reprogramar els albarans de proveïdor"
+msgstr "Replanifica els albarans de proveïdor"
 
 msgctxt "selection:ir.cron,method:"
 msgid "Reschedule Out Return Shipments"
-msgstr "Reprogramar els albarans de devolució de proveïdor"
+msgstr "Replanifica els albarans de devolució de client"
