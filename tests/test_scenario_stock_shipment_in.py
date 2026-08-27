@@ -59,12 +59,12 @@ class Test(unittest.TestCase):
         shipment_in.planned_date = yesterday
         shipment_in.supplier = supplier
         shipment_in.warehouse = warehouse_loc
-        move = shipment_in.moves.new()
+        move = shipment_in.incoming_moves.new()
         move.product = product
         move.unit = unit
         move.quantity = 1
-        move.from_location = storage_loc
-        move.to_location = supplier_loc
+        move.from_location = supplier_loc
+        move.to_location = warehouse_loc.input_location
         move.company = company
         move.unit_price = Decimal('1')
         move.currency = company.currency

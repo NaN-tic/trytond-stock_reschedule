@@ -67,8 +67,8 @@ class Test(unittest.TestCase):
             move.product = product
             move.unit = unit
             move.quantity = 1
-            move.from_location = output_loc
-            move.to_location = customer_loc
+            move.from_location = customer_loc
+            move.to_location = warehouse_loc.input_location
             move.company = company
             move.unit_price = Decimal('1')
             move.currency = company.currency
