@@ -1,6 +1,7 @@
 # This file is part of Tryton.  The COPYRIGHT file at the top level of
 # this repository contains the full copyright notices and license terms.
 from trytond.pool import Pool, PoolMeta
+from trytond.transaction import without_check_access
 
 
 class ShipmentInternal(metaclass=PoolMeta):
@@ -45,10 +46,12 @@ class ShipmentIn(metaclass=PoolMeta):
         if date is None:
             date = Date.today()
         shipments = cls.search(cls._get_reschedule_domain(date))
-        cls.write(shipments, {'planned_date': date})
+        with without_check_access():
+            cls.write(shipments, {'planned_date': date})
 
         moves = Move.search(cls._get_reschedule_incoming_move_domain(date))
-        Move.write(moves, {'planned_date': date})
+        with without_check_access():
+            Move.write(moves, {'planned_date': date})
 
 
 class ShipmentInReturn(metaclass=PoolMeta):
